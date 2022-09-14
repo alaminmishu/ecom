@@ -34,7 +34,7 @@ else {
      <div class="row">
        <div class="input-field col s12">
          <i class="material-icons prefix">email</i>
-         <input id="icon_prefix" type="text" name="email" class="validate" required>
+         <input id="icon_prefix" type="text" name="email" value="<?php echo 'abcd'; ?>" class="validate" required>
          <label for="icon_prefix">Email</label>
        </div>
 

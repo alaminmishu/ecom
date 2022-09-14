@@ -3,7 +3,7 @@
 session_start();
 
 if ($_SESSION['role'] !== 'admin') {
-    header('Location: ../index');
+    header('Location: ../index.php');
 }
 
 require 'includes/header.php';
@@ -44,7 +44,7 @@ require 'includes/navconnected.php'; //require $nav;
             $queryuser = "SELECT id, email, firstname, lastname, address, city, country, role FROM users";
 // $queryuser = "SELECT id, email, firstname, lastname, address, city, country, role FROM users WHERE role = 'client'";
             $resultuser = $connection->query($queryuser);
-            if ($resultuser->num_rows > 0) {
+            if (mysqli_num_rows($resultuser) > 0) { //$resultuser->num_rows > 0
                 // output data of each row
                 while ($rowuser = $resultuser->fetch_assoc()) {
                     $id_user = $rowuser['id'];
@@ -63,7 +63,7 @@ require 'includes/navconnected.php'; //require $nav;
                         <td><?= $country; ?></td>
                         <td><?= $address; ?></td>
                         <td><?= $role; ?></td>
-                        <td><a href="deleteuser.php?id=<?= $id_user; ?>"><i class="material-icons red-text">close</i></a></td>
+                        <td><a href="deleteuser.php?userid=<?= $id_user; ?>"><i class="material-icons red-text">close</i></a></td>
                     </tr>
             <?php }
             }  ?>
