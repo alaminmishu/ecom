@@ -18,7 +18,7 @@ class PDF extends PDF_MySQL_Table
 }
 
 // Connect to database
-$link = mysqli_connect('localhost','root','MyNewPass','ecommerce');
+$link = mysqli_connect('localhost','root','','ecomdb');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
